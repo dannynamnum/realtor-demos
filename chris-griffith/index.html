@@ -1,0 +1,855 @@
+<!-- LAYOUT C v1 · Chris Griffith · Downing-Frye Realty · Bonita Springs, FL -->
+<!-- Palette E (Valencia Sun & Sea — GL Homes builder identity, Bonita gulf-coast bright). Hero V2 default. Mobile email hidden. No contact form, lifestyle, testimonials. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Chris Griffith — Valencia Bonita & Bonita Springs luxury specialist with Downing-Frye Realty." />
+<title>Chris Griffith · Valencia Bonita Specialist · Bonita Springs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Palette E · Valencia Sun & Sea — bright sky-blue accent, deep marine, cream base */
+  --cream: #F4EEE2;
+  --warm-white: #FBF8F1;
+  --dark: #0B2E4A;
+  --dark-soft: #244B6B;
+  --accent: #2A9BD8;
+  --accent-dark: #1571A6;
+  --accent-light: #BCDEEF;
+  --sand: #E2D9C5;
+  --text-muted: #5C5A55;
+  --accent-rgb: 42, 155, 216;
+  --dark-rgb: 11, 46, 74;
+  --warm-white-rgb: 251, 248, 241;
+  --hero-overlay-tint: 6, 22, 36;
+
+  --rail-w: 300px;
+  --sticky-h: 64px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 300;
+  background: var(--warm-white);
+  color: var(--dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+  padding-bottom: var(--sticky-h);
+}
+img, video { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.shell {
+  display: grid;
+  grid-template-columns: var(--rail-w) 1fr;
+  min-height: 100vh;
+}
+
+/* ============== Rail (desktop) ============== */
+.rail {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--dark);
+  color: var(--warm-white);
+  padding: 38px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  z-index: 60;
+}
+.rail::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(var(--accent-rgb),0.5), transparent);
+}
+.rail-top { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.rail-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent-light);
+  border: 1.5px solid rgba(var(--accent-rgb), 0.5);
+  flex-shrink: 0;
+}
+.rail-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+.rail-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.rail-name .amp { color: var(--accent); }
+.rail-role {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  font-weight: 500;
+}
+.rail-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 30px 0;
+}
+.rail-nav a {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(var(--warm-white-rgb),0.62);
+  padding: 11px 0;
+  border-bottom: 0.5px solid rgba(var(--accent-rgb),0.16);
+  transition: color 0.3s, padding-left 0.3s;
+  position: relative;
+}
+.rail-nav a::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.3s;
+  transform: translateY(-50%);
+}
+.rail-nav a:hover { color: var(--warm-white); padding-left: 22px; }
+.rail-nav a:hover::before { width: 14px; }
+.rail-bottom { position: relative; z-index: 2; }
+.rail-cta {
+  display: block;
+  text-align: center;
+  background: var(--accent);
+  color: var(--warm-white);
+  padding: 15px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: background 0.3s, transform 0.3s;
+  margin-bottom: 18px;
+}
+.rail-cta:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.rail-contact {
+  font-size: 12px;
+  color: rgba(var(--warm-white-rgb),0.6);
+  letter-spacing: 0.05em;
+  line-height: 1.95;
+}
+.rail-contact a { transition: color 0.25s; }
+.rail-contact a:hover { color: var(--accent-light); }
+
+.content { min-width: 0; }
+
+/* ============== Hero ============== */
+.hero {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  height: 100vh;
+  min-height: 640px;
+  position: relative;
+}
+.hero-portrait { position: relative; background: var(--cream); overflow: hidden; }
+.hero-portrait img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: saturate(1.02);
+}
+.hero-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset -40px 0 60px -40px rgba(var(--dark-rgb),0.45);
+}
+.hero-video-wrap { position: relative; overflow: hidden; background: var(--dark); }
+.hero-video-wrap video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-video-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    rgba(var(--hero-overlay-tint),0.55) 0%,
+    rgba(var(--hero-overlay-tint),0.30) 35%,
+    rgba(var(--hero-overlay-tint),0.42) 100%);
+}
+.hero-plate {
+  position: absolute;
+  z-index: 5;
+  left: calc(42% - 150px);
+  bottom: 88px;
+  width: 460px;
+  max-width: 60vw;
+  background: var(--warm-white);
+  padding: 40px 44px 42px;
+  border-radius: 3px;
+  box-shadow: 0 30px 80px -20px rgba(var(--dark-rgb),0.4);
+}
+.hero-plate-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 16px;
+}
+.hero-plate-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(34px, 3.6vw, 52px);
+  line-height: 1.04;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+.hero-plate-title em { font-style: italic; color: var(--accent-dark); }
+.hero-plate-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 26px;
+  max-width: 340px;
+}
+.hero-plate-actions { display: flex; gap: 12px; align-items: center; }
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--warm-white);
+  padding: 14px 28px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: background 0.3s, transform 0.3s;
+}
+.btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+.btn-text {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dark);
+  font-weight: 500;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 3px;
+  transition: color 0.3s;
+}
+.btn-text:hover { color: var(--accent-dark); }
+.hero-vcap {
+  position: absolute;
+  z-index: 5;
+  right: 38px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(var(--warm-white-rgb),0.7);
+  font-weight: 500;
+}
+.scroll-cue {
+  position: absolute;
+  bottom: 34px;
+  right: 40px;
+  z-index: 5;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(var(--warm-white-rgb),0.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.scroll-cue::after {
+  content: '';
+  width: 44px; height: 1px;
+  background: rgba(var(--warm-white-rgb),0.5);
+  animation: cue 2.4s ease-in-out infinite;
+  transform-origin: left;
+}
+@keyframes cue {
+  0%,100% { transform: scaleX(0.4); opacity: 0.4; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+/* Hero V2 — full-bleed video, plate floats left */
+.hero.hero-v2 {
+  display: block;
+  grid-template-columns: none;
+  height: 100vh;
+  min-height: 640px;
+  position: relative;
+  overflow: hidden;
+  background: var(--dark);
+}
+.hero-v2 .hero-v2-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-v2 .hero-v2-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-v2 .hero-v2-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    rgba(var(--hero-overlay-tint),0.62) 0%,
+    rgba(var(--hero-overlay-tint),0.34) 40%,
+    rgba(var(--hero-overlay-tint),0.55) 100%);
+}
+.hero-v2 .hero-plate {
+  position: absolute;
+  left: 8vw;
+  bottom: 110px;
+  width: 520px;
+  max-width: calc(100vw - 16vw);
+}
+.hero-v2 .hero-vcap { right: 38px; }
+.hero-v2 .scroll-cue { bottom: 34px; right: 40px; }
+
+@media (max-width: 1024px) {
+  .hero.hero-v2 { height: 86vh; min-height: 0; }
+  .hero-v2 .hero-plate {
+    position: relative;
+    left: auto; bottom: auto;
+    width: calc(100% - 32px);
+    max-width: 480px;
+    margin: 0 auto;
+    transform: translateY(-70px);
+  }
+  .hero-v2 .hero-vcap, .hero-v2 .scroll-cue { display: none; }
+}
+
+/* ============== Sections ============== */
+.sec { padding: 110px 8vw; position: relative; }
+.sec-head { max-width: 640px; margin-bottom: 64px; }
+.kicker {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 18px;
+}
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(36px, 4.4vw, 60px);
+  line-height: 1.06;
+  color: var(--dark);
+}
+.sec-title em { font-style: italic; color: var(--accent-dark); }
+.sec-lede {
+  margin-top: 22px;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.85;
+  max-width: 560px;
+}
+
+/* ============== Listings ============== */
+.listings { background: var(--cream); border-top: 0.5px solid var(--sand); }
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.l-card {
+  background: var(--warm-white);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s;
+}
+.l-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px -22px rgba(var(--dark-rgb),0.28);
+}
+.l-img { aspect-ratio: 4 / 3; overflow: hidden; position: relative; background: var(--sand); }
+.l-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.l-card:hover .l-img img { transform: scale(1.06); }
+.l-body {
+  padding: 24px 26px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.l-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--dark);
+  line-height: 1.18;
+}
+.l-details {
+  font-size: 13px;
+  color: var(--dark-soft);
+  letter-spacing: 0.04em;
+}
+.l-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--accent);
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 0.5px solid var(--sand);
+}
+
+/* ============== About ============== */
+.about { background: var(--warm-white); border-top: 0.5px solid var(--sand); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 72px;
+  align-items: start;
+}
+.about-portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--sand);
+}
+.about-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.about-portrait .tagstrip {
+  position: absolute;
+  left: 0; bottom: 0; right: 0;
+  padding: 22px 24px;
+  background: linear-gradient(180deg, transparent, rgba(var(--dark-rgb),0.78));
+  color: var(--warm-white);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.pullquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.22;
+  color: var(--dark);
+  margin-bottom: 28px;
+}
+.pullquote em { font-style: italic; color: var(--accent-dark); }
+.about-body p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+.about-body p strong { color: var(--dark); font-weight: 500; }
+.timeline {
+  margin-top: 40px;
+  border-left: 1px solid var(--sand);
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.tl-item { position: relative; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 7px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--warm-white);
+  border: 1.5px solid var(--accent);
+}
+.tl-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.tl-text { font-size: 14px; color: var(--dark-soft); }
+
+/* ============== Footer ============== */
+.pageend {
+  background: var(--warm-white);
+  border-top: 0.5px solid var(--sand);
+  padding: 56px 8vw 70px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+.pe-mark { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--dark); }
+.pe-mark .amp { color: var(--accent); }
+.pe-mark span { display: block; font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent-dark); margin-top: 6px; font-weight: 500; }
+.pe-contact {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.9;
+}
+.pe-contact a { color: var(--dark-soft); transition: color 0.25s; }
+.pe-contact a:hover { color: var(--accent-dark); }
+.pe-fine { flex-basis: 100%; font-size: 11px; color: var(--text-muted); line-height: 1.75; max-width: 760px; }
+
+/* ============== Sticky Bottom Bar ============== */
+.sticky-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--dark);
+  border-top: 1px solid rgba(var(--accent-rgb), 0.25);
+  height: var(--sticky-h);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.sticky-inner {
+  max-width: 720px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.sticky-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(var(--warm-white-rgb), 0.85);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.sticky-cta {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--accent);
+  color: var(--warm-white);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 11px 22px;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.25s;
+  white-space: nowrap;
+}
+.sticky-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+/* ============== Animations ============== */
+.r { opacity: 0; transform: translateY(26px); animation: rin 1s cubic-bezier(0.16,1,0.3,1) forwards; }
+.r1 { animation-delay: 0.15s; } .r2 { animation-delay: 0.3s; }
+.r3 { animation-delay: 0.45s; } .r4 { animation-delay: 0.6s; }
+@keyframes rin { to { opacity: 1; transform: translateY(0); } }
+.sr { opacity: 0; transform: translateY(34px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+.sr.in { opacity: 1; transform: translateY(0); }
+.sr.d1 { transition-delay: 0.1s; } .sr.d2 { transition-delay: 0.2s; } .sr.d3 { transition-delay: 0.3s; }
+
+/* ============== Responsive ============== */
+@media (max-width: 1100px) {
+  .listings-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+@media (max-width: 1024px) {
+  .shell { grid-template-columns: 1fr; }
+
+  .rail {
+    position: relative; height: auto;
+    flex-direction: row; align-items: center; justify-content: space-between;
+    padding: 10px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .rail::after { display: none; }
+  .rail-top {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .rail-avatar {
+    width: 44px;
+    height: 44px;
+    border-width: 1px;
+  }
+  .rail-name {
+    font-size: 16px;
+    line-height: 1.1;
+    margin-bottom: 0;
+  }
+  .rail-name .amp { display: none; }
+  .rail-name br { display: none; }
+  .rail-role { display: none; }
+
+  .rail-nav { display: none; }
+
+  .rail-bottom {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+  .rail-cta {
+    margin-bottom: 0;
+    padding: 9px 14px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  .rail-contact {
+    display: block;
+    font-size: 11px;
+    line-height: 1.45;
+    color: rgba(var(--warm-white-rgb), 0.82);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .rail-contact .office-line { display: none; }
+  .rail-contact a[href^="mailto:"] { display: none; }
+  .rail-contact a[href^="mailto:"] + br { display: none; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: 52vh 46vh;
+    height: auto; min-height: 0;
+  }
+  .hero-portrait::after { box-shadow: inset 0 -40px 60px -40px rgba(var(--dark-rgb),0.45); }
+  .hero-plate {
+    position: relative; left: auto; bottom: auto;
+    width: calc(100% - 32px); max-width: 480px;
+    margin: -70px auto 0; z-index: 10;
+    padding: 32px 28px 34px;
+  }
+  .hero-vcap, .scroll-cue { display: none; }
+
+  .sec { padding: 72px 6vw; }
+  .sec-head { margin-bottom: 44px; }
+  .listings-grid { grid-template-columns: 1fr; gap: 22px; }
+  .about-grid { grid-template-columns: 1fr; gap: 44px; }
+  .about-portrait { max-width: 420px; }
+  .pageend { padding: 48px 6vw 60px; }
+}
+
+@media (max-width: 640px) {
+  .rail-cta { display: none; }
+  .rail-contact { font-size: 10.5px; line-height: 1.4; }
+}
+
+@media (max-width: 520px) {
+  .hero { grid-template-rows: 46vh 40vh; }
+  .hero-plate-sub { max-width: none; }
+  .hero-plate-actions { flex-direction: column; align-items: stretch; gap: 14px; }
+  .btn-primary, .btn-text { text-align: center; }
+
+  .sticky-bar { height: 60px; padding: 0 14px; }
+  .sticky-inner { gap: 12px; }
+  .sticky-label { font-size: 12px; }
+  .sticky-cta { font-size: 12px; padding: 10px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="rail">
+    <div class="rail-top r">
+      <div class="rail-avatar">
+        <img src="https://u.realgeeks.media/lifeinbonitasprings/Chris_Griffith_Bonita_Springs_Florida_Listing_Agent.jpg"
+             alt="Chris Griffith"
+             onerror="this.src='https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80&fit=crop'">
+      </div>
+      <div>
+        <div class="rail-name">Chris <span class="amp">·</span><br>Griffith</div>
+        <div class="rail-role">Valencia Bonita Specialist</div>
+      </div>
+    </div>
+    <nav class="rail-nav r r1" aria-label="Primary">
+      <a href="#listings">The Listings</a>
+      <a href="#about">Meet Chris</a>
+    </nav>
+    <div class="rail-bottom r r2">
+      <a href="tel:+12392737430" class="rail-cta">Call Chris</a>
+      <div class="rail-contact">
+        <a href="tel:+12392737430">(239) 273-7430</a><br>
+        <a href="mailto:chris@swflre.com">chris@swflre.com</a><br>
+        <span class="office-line">Downing-Frye Realty · Bonita Springs</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <!-- ============ DEFAULT HERO V2 ============ -->
+    <section class="hero hero-v2" aria-label="Hero">
+      <div class="hero-v2-media r">
+        <video autoplay muted loop playsinline preload="auto"
+               poster="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1800&q=80&auto=format&fit=crop">
+          <source src="https://videos.pexels.com/video-files/11493798/11493798-uhd_2560_1440_24fps.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-vcap" aria-hidden="true">Valencia Bonita · Bonita Springs</div>
+      <div class="scroll-cue" aria-hidden="true">Scroll</div>
+      <div class="hero-plate r r3">
+        <div class="hero-plate-eyebrow">Bonita Broker</div>
+        <h1 class="hero-plate-title">The <em>Valencia Bonita</em> specialist.</h1>
+        <p class="hero-plate-sub">Nearly thirty years selling Bonita Springs — from Valencia Bonita and the gated golf communities to the beachfront condos along Barefoot and Hickory.</p>
+        <div class="hero-plate-actions">
+          <a href="#listings" class="btn-primary">See the Listings</a>
+          <a href="#about" class="btn-text">Meet Chris</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Listings ============ -->
+    <section class="sec listings" id="listings" aria-label="Featured Listings">
+      <div class="sec-head sr">
+        <span class="kicker">Featured Listings</span>
+        <h2 class="sec-title">From Valencia Bonita to<br><em>the Gulf-front gates.</em></h2>
+        <p class="sec-lede">A sample of active listings across Bonita Springs — the 55+ resort lifestyle at Valencia Bonita, equity golf at Bonita National, and the Ritz-Carlton Residences at Estero Bay.</p>
+      </div>
+
+      <div class="listings-grid">
+
+        <article class="l-card sr">
+          <div class="l-img">
+            <img src="https://www.glhomes.com/siteassets/communities/valencia-walk-at-riverland/regal-collection/474-tribeca/vwr-474-tribeca-v3-1.jpg?w=1920"
+                 alt="28510 Wharton Dr, Valencia Bonita"
+                 onerror="this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80&fit=crop'">
+          </div>
+          <div class="l-body">
+            <h3 class="l-title">28510 Wharton Dr<br>Valencia Bonita</h3>
+            <p class="l-details">3 Bed · 3.5 Bath · Julia Model · 55+ Lakefront · MLS 226020016</p>
+            <div class="l-price">$1,030,000</div>
+          </div>
+        </article>
+
+        <article class="l-card sr d1">
+          <div class="l-img">
+            <img src="https://cdn.listingphotos.sierrastatic.com/large/v1779635496/116/116_226020113_01.jpg"
+                 alt="5100 Seagrass Blvd #503, Ritz-Carlton Residences Estero Bay"
+                 onerror="this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80&fit=crop'">
+          </div>
+          <div class="l-body">
+            <h3 class="l-title">5100 Seagrass Blvd #503<br>Ritz-Carlton, Estero Bay</h3>
+            <p class="l-details">3 Bed · 3.5 Bath · Gulf-front Residence · MLS 226020764</p>
+            <div class="l-price">$5,150,000</div>
+          </div>
+        </article>
+
+        <article class="l-card sr d2">
+          <div class="l-img">
+            <img src="https://cdn.listingphotos.sierrastatic.com/large/v1779635496/116/116_226020113_01.jpg"
+                 alt="28522 Westmeath Ct, Bonita National Golf & Country Club"
+                 onerror="this.src='https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80&fit=crop'">
+          </div>
+          <div class="l-body">
+            <h3 class="l-title">28522 Westmeath Ct<br>Bonita National G&CC</h3>
+            <p class="l-details">2 Bed · 2.5 Bath · Victoria Model · Golf Membership · MLS 226020392</p>
+            <div class="l-price">$1,023,000</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="sec about" id="about" aria-label="About Chris Griffith">
+      <div class="about-grid">
+        <div class="about-portrait sr">
+          <img src="https://u.realgeeks.media/lifeinbonitasprings/Chris_Griffith_Bonita_Springs_Florida_Listing_Agent.jpg"
+               alt="Chris Griffith portrait"
+               onerror="this.src='https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=700&q=80&fit=crop'">
+          <div class="tagstrip">The Griffith Group · Downing-Frye Realty</div>
+        </div>
+        <div class="about-body sr d1">
+          <span class="kicker">Your Local Bonita Springs Expert</span>
+          <p class="pullquote">A Bonita Springs resident since the <em>late nineties.</em> Founder of LifeInBonitaSprings.com.</p>
+          <p><strong>Chris Elizabeth Griffith</strong> leads The Griffith Group at Downing-Frye Realty — a full-time team built around listing specialists, buyer specialists, and client care coordinators. She has spent nearly thirty years walking buyers and sellers through every phase of the Bonita Springs market, from Valencia Bonita and the gated golf communities to beachfront condos at Barefoot and the Ritz-Carlton Residences.</p>
+          <p>She founded LifeInBonitaSprings.com as a living guide to the community — neighborhood breakdowns, monthly market reports, and straight talk written from experience. Author of <em>It Started With a Helmet</em>, board member of the Bonita Springs Historical Society, and a long-time community gardener. Clients describe her as steady, professional, and kind — and the work as the gold standard.</p>
+
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-year">Late 1990s</div>
+              <div class="tl-text">Began selling Bonita Springs real estate.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">The Griffith Group</div>
+              <div class="tl-text">Team lead at Downing-Frye Realty, Inc. — full-time agents, dedicated client care.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">LifeInBonitaSprings.com</div>
+              <div class="tl-text">Founder. Local lifestyle guide, monthly market reports, neighborhood breakdowns.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">Today</div>
+              <div class="tl-text">Valencia Bonita, Bonita Bay, Pelican Landing, The Colony, Spanish Wells, and the beachfront from Barefoot to Hickory.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="pageend">
+      <div class="pe-mark">Chris <span class="amp">·</span> Griffith<span>Valencia Bonita Specialist</span></div>
+      <div class="pe-contact">
+        <a href="tel:+12392737430">(239) 273-7430</a> · <a href="mailto:chris@swflre.com">chris@swflre.com</a><br>
+        Downing-Frye Realty · 27399 Riverview Center Blvd, Suite 101 · Bonita Springs, FL 34134
+      </div>
+      <p class="pe-fine">Chris Elizabeth Griffith PA is an independent REALTOR® with The Griffith Group at Downing-Frye Realty, Inc. Information deemed reliable but not guaranteed. Prices and availability subject to change. Equal Housing Opportunity.</p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- ============ Sticky bottom bar ============ -->
+<div class="sticky-bar" role="region" aria-label="Call Chris Griffith">
+  <div class="sticky-inner">
+    <span class="sticky-label">Ready to talk?</span>
+    <a href="tel:+12392737430" class="sticky-cta">Call · (239) 273-7430</a>
+  </div>
+</div>
+
+<script>
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.sr').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

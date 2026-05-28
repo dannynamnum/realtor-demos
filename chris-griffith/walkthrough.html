@@ -1,0 +1,236 @@
+<!-- LAYOUT C v1 · Chris Griffith · walkthrough · palette E (Valencia Sun & Sea) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="A personal walkthrough of Chris Griffith's new Valencia Bonita specialist website — by Danny Namnum." />
+<title>Walkthrough · Chris Griffith</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Palette E · Valencia Sun & Sea — matches Chris's index.html */
+  --cream: #F4EEE2;
+  --warm-white: #FBF8F1;
+  --dark: #0B2E4A;
+  --dark-soft: #244B6B;
+  --accent: #2A9BD8;
+  --accent-dark: #1571A6;
+  --accent-light: #BCDEEF;
+  --sand: #E2D9C5;
+  --text-muted: #5C5A55;
+  --accent-rgb: 42, 155, 216;
+  --dark-rgb: 11, 46, 74;
+  --warm-white-rgb: 251, 248, 241;
+  --hero-overlay-tint: 6, 22, 36;
+
+  /* Sticky bar — Danny's brand, hardcoded across all walkthrough pages. */
+  --bar-bg: #F0EDE8;
+  --bar-text: #3A3530;
+  --bar-cta-bg: #151821;
+  --bar-cta-text: #F0EDE8;
+  --bar-cta-hover: #2C2A33;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 300;
+  background: var(--warm-white);
+  color: var(--dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-bottom: 64px;
+  text-align: center;
+}
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 36px 24px 56px;
+}
+
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--dark);
+  margin-bottom: 22px;
+  display: inline-block;
+}
+.wordmark .dot { color: var(--accent); }
+.wordmark em {
+  font-style: italic;
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  color: var(--accent-dark);
+}
+
+.eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 22px;
+}
+
+.video-aspect {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto 40px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px -16px rgba(var(--dark-rgb), 0.32);
+  /* NOTE: update this % to match the value in Loom's Copy Embed snippet exactly */
+  padding-bottom: 177.78%;
+  background: var(--dark);
+}
+.video-aspect iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cta-row { margin-bottom: 30px; }
+.cta-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--warm-white);
+  padding: 16px 36px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: background 0.3s, transform 0.3s;
+  font-family: 'DM Sans', sans-serif;
+}
+.cta-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.cta-primary::after { content: ' →'; }
+
+.how-link {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 0.5px solid rgba(var(--accent-rgb), 0.4);
+  padding-bottom: 3px;
+  margin-bottom: 56px;
+  transition: color 0.25s, border-color 0.25s;
+}
+.how-link:hover { color: var(--accent-dark); border-color: var(--accent); }
+
+.footer-line {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.footer-line .dot { color: var(--accent); padding: 0 6px; }
+
+/* ===== Sticky CTA Bar — Danny's brand ===== */
+.sticky-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--bar-bg);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  height: 64px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.sticky-inner {
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.sticky-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--bar-text);
+  white-space: nowrap;
+}
+.sticky-cta {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bar-cta-bg);
+  color: var(--bar-cta-text);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 24px;
+  border-radius: 2px;
+  transition: background 0.25s, transform 0.25s;
+  white-space: nowrap;
+}
+.sticky-cta .arrow { display: inline-block; margin-left: 6px; transition: transform 0.25s; }
+.sticky-cta:hover { background: var(--bar-cta-hover); transform: translateY(-1px); }
+.sticky-cta:hover .arrow { transform: translateX(3px); }
+
+@media (max-width: 640px) {
+  .wrap { padding: 28px 18px 40px; }
+  .wordmark { font-size: 15px; }
+  .video-aspect { max-width: 100%; }
+  .cta-primary { padding: 14px 28px; font-size: 11px; }
+  body { padding-bottom: 60px; }
+  .sticky-bar { height: 60px; padding: 0 14px; }
+  .sticky-inner { gap: 12px; }
+  .sticky-label { font-size: 12px; }
+  .sticky-cta { font-size: 12px; padding: 10px 18px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a href="./index.html" class="wordmark">Chris Griffith<span class="dot"> · </span><em>Valencia Bonita Specialist</em></a>
+
+  <p class="eyebrow">A personal walkthrough</p>
+
+  <div class="video-aspect">
+    <!-- TODO: Replace src with the actual Loom embed iframe once Danny records the walkthrough.
+         REQUIRED params on src: ?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&hideLogo=true
+         REQUIRED: update padding-bottom on .video-aspect to match the % in Loom's Copy Embed snippet exactly.
+         REQUIRED: set playback speed to 1x in Loom's Audience tab before embedding. -->
+    <iframe
+      src="about:blank"
+      title="Walkthrough of Chris Griffith's new website"
+      allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="cta-row">
+    <a href="./index.html" class="cta-primary">View Your Demo</a>
+  </div>
+
+  <a href="https://namnumdesign.co" class="how-link" target="_blank" rel="noopener">How this works</a>
+
+  <p class="footer-line">Built by Danny Namnum<span class="dot">·</span>One agent, no team</p>
+</div>
+
+<div class="sticky-bar" role="region" aria-label="Schedule a call with Danny">
+  <div class="sticky-inner">
+    <span class="sticky-label">Like what you see?</span>
+    <a href="https://fantastical.app/Namnum/Intro-conversation" class="sticky-cta" target="_blank" rel="noopener">Let's Talk<span class="arrow">→</span></a>
+  </div>
+</div>
+
+</body>
+</html>
